@@ -1,5 +1,6 @@
 react-native-document-picker
 
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 import DocumentPicker, {pick, types} from 'react-native-document-picker';
 
@@ -20,7 +21,7 @@ const addNew = async () => {
 
   const uploadFile = async function (data) {
     // setLoading(true);
-    const resp = await imageUploader(data, token);
+    const resp = await fileUploader(data, token);
     if (resp.ok) {
       console.log( resp);
     } else {
@@ -31,7 +32,7 @@ const addNew = async () => {
 
 
 
-const imageUploader = async (file, token) => {
+const fileUploader = async (file, token) => {
     var data = new FormData();
   
     try {
